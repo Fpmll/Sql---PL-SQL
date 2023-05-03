@@ -52,13 +52,13 @@ begin
                                         , sn_cd_erro       => :sn_cd_erro
                                         );
                                        
-         /*Dbms_Output.Put_Line('Descrição_ID: '         || vt_docfisefd_merc(i).docfisefd_id  || chr(10)||
+         /*Dbms_Output.Put_Line('DescriÃ§Ã£o_ID: '         || vt_docfisefd_merc(i).docfisefd_id  || chr(10)||
                               'Codigo do Participante: ' || vt_docfisefd_merc(i).cd_particip   || chr(10)||
                               'Modelo: '                 || vt_docfisefd_merc(i).modelo        || chr(10)||
                               'Serie: '                  || vt_docfisefd_merc(i).serie         || chr(10)||
                               'Nro Documento: '          || vt_docfisefd_merc(i).nro_docto     || chr(10)||
                               'Codigo: '                 || vt_tpsidoctsp(1).cd                || chr(10)||
-                              'Descrição: '              || vt_tpsidoctsp(1).descr             || chr(10)||
+                              'DescriÃ§Ã£o: '              || vt_tpsidoctsp(1).descr             || chr(10)||
                               'Emiss: '                  || vt_docfisefd_merc(i).dt_emiss      || chr(10)||
                               'Ent-Sai: '                || vt_docfisefd_merc(i).dt_entr_saida || chr(10)||
                               'Valor: '                  || vt_docfisefd_merc(i).vlr_docto     || chr(10)
@@ -133,13 +133,17 @@ begin
                                  --'Valor Icms St: ' || vt_itdocfiefd(l).vlr_icms_st    || chr(10) || 
                                  --'Valor Ipi: '     || vt_itdocfiefd(l).vlr_ipi        || chr(10)
                                    );
-              
+                                   
+              if vt_docto(k).vlr_docto > 0 then
               vn_percentual := ( vt_itdocfiefd(l).vlr_item   * 100 ) / vt_docto(k).vlr_docto;
               dbms_output.put_line( 'Percentual: '        || vn_percentual || '%'   );
+              end if;
               
+              if vt_docto(k).qtde_items > 0 then
               vn_percentual_item := (vt_itdocfiefd(l).qtde * 100)/ vt_docto(k).qtde_items;
               dbms_output.put_line('Qtde Totoal: '      || vt_docto(k).qtde_items || chr(10) ||
                                    'Percentual Item: '  || vn_percentual_item     || '%'     || chr(10));
+              end if;
            end loop;   
         end if;
       end loop;
