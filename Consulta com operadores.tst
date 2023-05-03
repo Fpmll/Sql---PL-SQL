@@ -135,14 +135,14 @@ begin
                                    );
                                    
               if vt_docto(k).vlr_docto > 0 then
-              vn_percentual := ( vt_itdocfiefd(l).vlr_item   * 100 ) / vt_docto(k).vlr_docto;
-              dbms_output.put_line( 'Percentual: '        || vn_percentual || '%'   );
+                 vn_percentual := ( vt_itdocfiefd(l).vlr_item   * 100 ) / vt_docto(k).vlr_docto;
+                 dbms_output.put_line( 'Percentual: '        || vn_percentual || '%'   );
               end if;
               
               if vt_docto(k).qtde_items > 0 then
-              vn_percentual_item := (vt_itdocfiefd(l).qtde * 100)/ vt_docto(k).qtde_items;
-              dbms_output.put_line('Qtde Totoal: '      || vt_docto(k).qtde_items || chr(10) ||
-                                   'Percentual Item: '  || vn_percentual_item     || '%'     || chr(10));
+                 vn_percentual_item := (vt_itdocfiefd(l).qtde * 100)/ vt_docto(k).qtde_items;
+                 dbms_output.put_line('Qtde Totoal: '      || vt_docto(k).qtde_items || chr(10) ||
+                                      'Percentual Item: '  || vn_percentual_item     || '%'     || chr(10));
               end if;
            end loop;   
         end if;
